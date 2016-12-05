@@ -3,20 +3,27 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        GraphMatrix graph = new GraphMatrix(5);
-        graph.setEdgeFromVertexToVertexWithWeight(0,1,50);
-        graph.setEdgeFromVertexToVertexWithWeight(0,3,30);
-        graph.setEdgeFromVertexToVertexWithWeight(0,4,30);
+        B_depthFirstSearch();
+        C_breadthFirstSearch();
+        D_allPaths();
+        //graph.printAdjacencyList();
+    }
 
-        graph.setEdgeFromVertexToVertexWithWeight(2,2,10);
-        graph.setEdgeFromVertexToVertexWithWeight(2,3,20);
-        graph.setEdgeFromVertexToVertexWithWeight(2,4,90);
+    public static void B_depthFirstSearch() {
+        System.out.println("B. Depth First search");
+        Graph g = Graph.makeDFSTestGraph();
+        g.dfs(g.start);
+    }
 
-        graph.setEdgeFromVertexToVertexWithWeight(3,1,10);
-        graph.setEdgeFromVertexToVertexWithWeight(3,4,20);
+    public static void C_breadthFirstSearch() {
+        System.out.println("C. Bread First search");
+        Graph g = Graph.makeBFSTestGraph();
+        g.bfs(g.start, g.goal);
+    }
 
-        graph.setEdgeFromVertexToVertexWithWeight(4,4,90);
-
-        graph.printAdjacencyList();
+    public static void D_allPaths() {
+        System.out.println("D. All paths from SFO to MIAMI");
+        Graph g = Graph.makeAllPathsTestGraph();
+        g.printAllPathsFromTo(g.start, g.goal);
     }
 }
